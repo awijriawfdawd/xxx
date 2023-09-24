@@ -102,7 +102,7 @@ links = {
     "rose_discord": "https://discord.gg/VsmErgaTcv"
 }
 
-logger.critical(f"Rose UI Builder is using version {str(__version__)}")
+logger.critical(f"Devz UI Builder is using version {str(__version__)}")
 
 def open_link(key):
     webbrowser.open(links[key])
